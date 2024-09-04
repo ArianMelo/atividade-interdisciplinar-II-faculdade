@@ -1,0 +1,266 @@
+
+@import './mediaQuery';
+
+$header-color: #3c1ab5e8;
+$bg-color: #f1f1f1;
+$h1-color: #222;
+$h2-color: #3c1ab5;
+$p-color: #666;
+$article-color: #efefef;
+
+@mixin flexBox($display,$alignItems,$justifyContent,$flexDirection){
+  display: $display;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  flex-direction: $flexDirection;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'poppins', Arial, sans-serif;
+}
+
+body{
+  background: $bg-color;
+}
+
+h1{
+  color: $h1-color;
+}
+
+h2{
+  color: $h2-color;
+}
+
+p{
+  color: $p-color;
+  font-size: 14px;
+}
+
+img{
+  width: 300px;
+}
+
+ul{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+.container{
+  background: $article-color;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.img-area{
+  padding: 0 20px;
+}
+
+.text-area{
+  padding: 0 20px;
+  h2{
+    padding-bottom: 20px;
+  }
+}
+
+.text-area, .img-area{
+  width: 50%;
+}
+
+.header{
+  background: linear-gradient($header-color, $header-color), 
+  url('../imgs/header-bg.jpg') center/cover no-repeat;
+  text-align: center;
+  padding: 140px 0px;
+  /* CORES DO TEXTO HEADER */
+  h1, p{
+    color: white;
+  }
+}
+
+.content{
+  @include flexBox(flex,center,center,row);
+}
+
+#busque-ajuda{
+  padding-bottom: 40px;
+}
+
+.container.references{
+  @include flexBox(flex,center,center,column);
+
+  border-top: 1px solid $h2-color;
+  
+  .text-area{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .links{
+
+    ul{
+      list-style: circle;
+      color: $h2-color;
+    }
+
+    li{
+      margin-bottom: 20px;
+    }
+
+    a{
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+
+    a:hover{
+      padding: 0;
+      border-bottom: 2px solid $h2-color;
+    }
+
+  }
+}
+
+.footer .contacts ul li a img{
+  font-size: 20px;
+  width: 10px;
+}
+
+.footer{
+  background: linear-gradient($header-color, $header-color), 
+  url('../imgs/header-bg.jpg') center/cover no-repeat;
+  color: $bg-color;
+  padding-top: 20px;
+
+  @include flexBox(flex,center,center,column);
+
+  .contacts{
+
+    padding-bottom: 10px;
+    border-bottom: 1px solid $article-color;
+    margin-bottom: 40px;
+
+    ul{
+      @include flexBox(flex,center,center,row);
+
+      li{
+        padding: 10px;
+
+        a{
+          padding: 5px;
+
+          img{
+            width: 30px;
+            transition: 0.1s;
+          }
+
+          :hover{
+            width: 32px;
+          }
+        }
+
+      }
+    }
+    
+  }
+
+  .links{
+    @include flexBox(flex,center,center,row);
+
+    ul{
+      display: flex;
+      flex-direction: column;
+      margin: 0 20px;
+      list-style: inside;
+
+      li{
+        text-align: left;
+        padding:5px 0;
+
+        a{
+          font-weight: 600;
+          font-size: 12px;
+        }
+        
+        a:hover{
+          border-bottom: 2px solid $article-color;
+        }
+      }
+    }
+
+    margin-bottom: 20px;
+  }
+
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
+
+  p{
+    color: #fff;
+  }
+  
+  .copywrith{
+    padding: 50px;
+
+    span{
+      font-weight: 600;
+    }
+  }
+}
+
+@media screen and (max-width: 678px) {
+
+  .container{
+    @include flexBox(flex,center,center,column);
+    padding: 0;
+
+    .text-area, .img-area{
+      @include flexBox(flex,center,center,column);
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      width: 80%;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .text-area, .img-area{
+    @include flexBox(flex,center,center,column);
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .container.references{
+  
+    .links{
+  
+      ul{
+        list-style: circle;
+        color: $h2-color;
+      }
+  
+      li{
+        margin-bottom: 20px;
+        margin-left: 40px;
+      }
+  
+      a{
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: 400;
+      }
+  
+    }
+  }
+}
+
+
+
